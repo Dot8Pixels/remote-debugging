@@ -13,6 +13,7 @@
         "python.analysis.extraPaths": ["${workspaceFolder:Root}"],
         "terminal.integrated.env.windows": {
             "PYTHONPATH": "${workspaceFolder:Root}"
-        }
+        },
+        "python.autoComplete.extraPaths": ["Root"]
     }
 }
