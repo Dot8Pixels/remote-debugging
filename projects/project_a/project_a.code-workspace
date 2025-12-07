@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "name": "Root",
+            "path": "d:/Category/Coding/CodingRepo/Python/remote_debugging"
+        },
+        {
+            "name": "Project A",
+            "path": "d:/Category/Coding/CodingRepo/Python/remote_debugging/projects/project_a"
+        }
+    ],
+    "settings": {
+        "python.analysis.extraPaths": ["${workspaceFolder:Root}"],
+        "terminal.integrated.env.windows": {
+            "PYTHONPATH": "${workspaceFolder:Root}"
+        }
+    }
+}
