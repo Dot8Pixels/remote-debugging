@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.11-slim
+    container_name: remote_debugging_app
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    ports:
+      - "5678:5678"
+    command: tail -f /dev/null
+    stdin_open: true
+    tty: true
