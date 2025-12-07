@@ -32,7 +32,8 @@
                     "localRoot": "${workspaceFolder}/projects/project_a",
                     "remoteRoot": "."
                 }
-            ]
+            ],
+            "preLaunchTask": "Debug Project A"
         }
     ]
 }
