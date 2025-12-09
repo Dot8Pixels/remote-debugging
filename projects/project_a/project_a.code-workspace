@@ -10,10 +10,15 @@
         }
     ],
     "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder:Root}/.venv/Scripts/python.exe",
         "python.analysis.extraPaths": ["${workspaceFolder:Root}"],
         "terminal.integrated.env.windows": {
-            "PYTHONPATH": "${workspaceFolder:Root}"
+            "PYTHONPATH": "${workspaceFolder:Root};${workspaceFolder:Project A}/src"
         },
-        "python.autoComplete.extraPaths": ["Root"]
+        "python.autoComplete.extraPaths": ["Root"],
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.cwd": "${workspaceFolder:Project A}",
+        "python.testing.pytestArgs": ["src/test", "-v"]
     }
 }

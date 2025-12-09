@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "debugpy>=1.8.17",
-]
+dependencies = ["debugpy>=1.8.17", "pytest>=8.3.4"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["modules/test", "libs/test", "projects/project_a/src/test"]
