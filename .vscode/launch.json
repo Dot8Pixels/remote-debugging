@@ -17,7 +17,8 @@
                     "localRoot": "${workspaceFolder}",
                     "remoteRoot": "."
                 }
-            ]
+            ],
+            "preLaunchTask": "Debug Root (Dynamic)"
         },
         {
             "name": "Python Debugger: Remote Attach (Dynamic)",
@@ -41,7 +42,7 @@
             "id": "debugPort",
             "type": "promptString",
             "description": "Enter debug port (avoid 5661-5760 range)",
-            "default": "6000"
+            "default": "5678"
         },
         {
             "id": "projectName",

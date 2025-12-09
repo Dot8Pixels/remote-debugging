@@ -2,6 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Debug Root (Dynamic)",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "debugpy",
+                "--listen",
+                "localhost:${input:debugPort}",
+                "--wait-for-client",
+                "${relativeFile}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}"
+                }
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Debugpy.*$",
+                    "endsPattern": "^.*Waiting for debugger.*$"
+                }
+            }
+        },
+        {
             "label": "Debug Project (Dynamic)",
             "type": "shell",
             "command": "python",
@@ -11,10 +44,10 @@
                 "--listen",
                 "localhost:${input:debugPort}",
                 "--wait-for-client",
-                "src/main.py"
+                "${relativeFile}"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/projects/${input:projectName}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "PYTHONPATH": "${workspaceFolder}"
                 }
@@ -40,7 +73,7 @@
             "id": "debugPort",
             "type": "promptString",
             "description": "Enter debug port (avoid 5661-5760 range)",
-            "default": "6000"
+            "default": "5678"
         },
         {
             "id": "projectName",
