@@ -44,12 +44,12 @@
                 "--listen",
                 "localhost:${input:debugPort}",
                 "--wait-for-client",
-                "${relativeFile}"
+                "${file}"
             ],
             "options": {
-                "cwd": "${workspaceFolder}",
+                "cwd": "${fileDirname}/..",
                 "env": {
-                    "PYTHONPATH": "${workspaceFolder}"
+                    "PYTHONPATH": "${workspaceFolder};${fileDirname}/.."
                 }
             },
             "isBackground": true,
@@ -74,13 +74,6 @@
             "type": "promptString",
             "description": "Enter debug port (avoid 5661-5760 range)",
             "default": "5678"
-        },
-        {
-            "id": "projectName",
-            "type": "pickString",
-            "description": "Select project to debug",
-            "options": ["project_a", "project_b"],
-            "default": "project_a"
         }
     ]
 }
