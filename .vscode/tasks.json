@@ -2,19 +2,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Debug Project A",
+            "label": "Debug Project (Dynamic)",
             "type": "shell",
             "command": "python",
             "args": [
                 "-m",
                 "debugpy",
                 "--listen",
-                "localhost:5678",
+                "localhost:${input:debugPort}",
                 "--wait-for-client",
                 "src/main.py"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/projects/project_a",
+                "cwd": "${workspaceFolder}/projects/${input:projectName}",
                 "env": {
                     "PYTHONPATH": "${workspaceFolder}"
                 }
@@ -33,6 +33,21 @@
                     "endsPattern": "^.*Waiting for debugger.*$"
                 }
             }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "debugPort",
+            "type": "promptString",
+            "description": "Enter debug port (avoid 5661-5760 range)",
+            "default": "6000"
+        },
+        {
+            "id": "projectName",
+            "type": "pickString",
+            "description": "Select project to debug",
+            "options": ["project_a", "project_b"],
+            "default": "project_a"
         }
     ]
 }

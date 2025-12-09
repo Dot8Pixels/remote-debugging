@@ -10,7 +10,7 @@
             "request": "attach",
             "connect": {
                 "host": "localhost",
-                "port": 5678
+                "port": "${input:debugPort}"
             },
             "pathMappings": [
                 {
@@ -20,20 +20,35 @@
             ]
         },
         {
-            "name": "Python Debugger: Remote Attach (Project A)",
+            "name": "Python Debugger: Remote Attach (Dynamic)",
             "type": "debugpy",
             "request": "attach",
             "connect": {
                 "host": "localhost",
-                "port": 5678
+                "port": "${input:debugPort}"
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/projects/project_a",
+                    "localRoot": "${workspaceFolder}/projects/${input:projectName}",
                     "remoteRoot": "."
                 }
             ],
-            "preLaunchTask": "Debug Project A"
+            "preLaunchTask": "Debug Project (Dynamic)"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "debugPort",
+            "type": "promptString",
+            "description": "Enter debug port (avoid 5661-5760 range)",
+            "default": "6000"
+        },
+        {
+            "id": "projectName",
+            "type": "pickString",
+            "description": "Select project to debug",
+            "options": ["project_a", "project_b"],
+            "default": "project_a"
         }
     ]
 }
