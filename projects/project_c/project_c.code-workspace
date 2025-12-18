@@ -19,12 +19,6 @@
         "python.testing.pytestEnabled": true,
         "python.testing.unittestEnabled": false,
         "python.testing.cwd": "${workspaceFolder:Project}",
-        "python.testing.pytestArgs": ["src/test", "-v"],
-        "code-runner.executorMap": {
-            "python": "d:\\Category\\Coding\\CodingRepo\\Python\\remote_debugging\\.venv\\Scripts\\python.exe -u"
-        },
-        "code-runner.fileDirectoryAsCwd": true,
-        "code-runner.runInTerminal": true,
-        "code-runner.clearPreviousOutput": false
+        "python.testing.pytestArgs": ["src/test", "-v"]
     }
 }
